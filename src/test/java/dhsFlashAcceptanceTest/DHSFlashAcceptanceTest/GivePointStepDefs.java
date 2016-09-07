@@ -1,6 +1,5 @@
 package dhsFlashAcceptanceTest.DHSFlashAcceptanceTest;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.net.URL;
@@ -60,6 +59,7 @@ public class GivePointStepDefs {
 	@Then ("^The form will submit$")
 	public void formSubmitted() {
 		assertTrue(true);
+		driver.quit();
 	}
 	
 	/**
@@ -69,5 +69,6 @@ public class GivePointStepDefs {
 	public void submitEmptyForm() {
 		givePoint.clickGivePoint();
 		assertTrue(true);
+		driver.quit();
 	}
 }
