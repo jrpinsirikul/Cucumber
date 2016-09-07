@@ -1,5 +1,7 @@
 package dhsFlashAcceptanceTest.Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,11 +21,14 @@ public class GivePoint {
 	@FindBy(css="button[title='Log In']")
 	WebElement givePointButton;
 
-	@FindBy(xpath="//div[@id='content-wrapper']/div/h1")
-	WebElement successMessage;
+	@FindBy(id="kudosAwardList")
+	WebElement kudosList;
 
-	@FindBy(xpath="//div[@id='content-wrapper']/div/h1")
-	WebElement errorMessage;
+	@FindBy(xpath="//div[@id='kudosAwardList']/kudos-award-list/div/h3")
+	WebElement kudosListTitle;
+
+	@FindBy(css="li[ng-repeat='user in users']")
+	List<WebElement> usersInList;
 
 	/**
 	 * Initializes give point page element
@@ -60,35 +65,35 @@ public class GivePoint {
 	}
 
 	/**
-	 * Gets the notification message element from the screen
-	 * @return the web element of the notification message
+	 * Get Kudos list
+	 * @return the list element
 	 */
-	public WebElement getSuccessMessage() {
-		return successMessage;
+	public WebElement getKudosList() {
+		return kudosList;
 	}
 
 	/**
-	 * Returns the text of the notification message
-	 * @return the message text
+	 * Get list title
+	 * @return the list title element
 	 */
-	public String getSuccessText() {
-		return successMessage.getText();
+	public WebElement getList() {
+		return kudosListTitle;
 	}
 
 	/**
-	 * Gets the notification message element from the screen
-	 * @return the web element of the notification message
+	 * Get list title text
+	 * @return string of the title
 	 */
-	public WebElement getErrorMessage() {
-		return errorMessage;
+	public String getListTitleText() {
+		return kudosListTitle.getText();
 	}
 
 	/**
-	 * Returns the text of the notification message
-	 * @return the message text
+	 * Get users in list
+	 * @return the list of users
 	 */
-	public String getErrorText() {
-		return errorMessage.getText();
+	public List<WebElement> getUsers() {
+		return usersInList;
 	}
 
 	/**
