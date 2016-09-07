@@ -46,6 +46,33 @@ public class StepDefs {
 	}
 	
 	/**
+	 * Tanu welcome page check
+	 */
+	@Given("^I want to go to the site$")
+	public void i_want_to_go_to_the_site() throws Throwable {
+		capability = DesiredCapabilities.firefox();
+		capability.setBrowserName("firefox");
+		capability.setPlatform(Platform.LINUX);
+		
+		driver = new RemoteWebDriver(new URL("http://52.207.208.41:4444/wd/hub"),capability);
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	@When("^I go to www\\.linktec\\.com/DHSFlash$")
+	public void i_go_to_www_linktec_com_DHSFlash() throws Throwable {
+		driver.get("http://www.linktecflash.com/DHSFlash");
+	}
+
+	@Then("^the homepage loads$")
+	public void the_homepage_loads() throws Throwable {
+	    //System.out.println(driver.getTitle());
+	    assertEquals("Kudos Form | kudos", driver.getTitle());
+	    
+	    driver.quit();
+	}
+	
+	/**
 	 * Login Feature
 	 * @throws Throwable
 	 */
