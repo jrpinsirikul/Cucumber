@@ -38,4 +38,12 @@ public class WelcomePage {
 	public WebElement getHomeMessage() {
 		return homeMessage;
 	}
+	
+	/**
+	 * Gets the home page title
+	 * @return the title of the page
+	 */
+	public String getPageTitle() {
+		return driver.getTitle();
+	}
 }
