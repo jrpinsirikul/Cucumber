@@ -41,7 +41,7 @@ public class StepDefs {
 	@Then("^I should see message (.+)$")
 	public void checkWelcomeMessage(String welcomeMessage) throws Throwable {
 		assertTrue(welcome.getHomeMessage().isDisplayed());
-		assertEquals("Hello World", welcome.getMessageText());
+		assertEquals(welcomeMessage, welcome.getMessageText());
 		driver.quit();
 	}
 	
@@ -57,6 +57,7 @@ public class StepDefs {
 		driver = new RemoteWebDriver(new URL("http://52.207.208.41:4444/wd/hub"),capability);
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		welcome = new WelcomePage(driver);
 	}
 
 	@When("^I go to www\\.linktec\\.com/DHSFlash$")
@@ -67,27 +68,7 @@ public class StepDefs {
 	@Then("^the homepage loads$")
 	public void the_homepage_loads() throws Throwable {
 	    //System.out.println(driver.getTitle());
-	    assertEquals("Kudos Form | kudos", driver.getTitle());
-	    
+	    assertEquals("Kudos Form | kudos", welcome.getPageTitle());  
 	    driver.quit();
-	}
-	
-	/**
-	 * Login Feature
-	 * @throws Throwable
-	 */
-	@Given("^I have a valid username and password$")
-	public void startUpApp() throws Throwable {
-		assertTrue(true);
-	}
-	
-	@When ("^I input my username and password (.+) (.+)$")
-	public void inputUsername(String username, String password) throws Throwable {
-		assertTrue(true);
-	}
-	
-	@Then("^I should be logged in$")
-	public void checkLogin() throws Throwable {
-		assertTrue(true);
 	}
 }

@@ -9,7 +9,7 @@ Feature: Kudos Welcome Message
 	
 	Scenario Outline: Kudos application shows welcome message to users
 		When I navigate to home page <environment>
-		Then I should see message "Hello World"
+		Then I should see message Send some Kudos
 		
 		Examples:
 		| environment									   |
