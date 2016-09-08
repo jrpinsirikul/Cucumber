@@ -31,7 +31,7 @@ public class StepDefs {
 		capability.setBrowserName("firefox");
 		capability.setPlatform(Platform.LINUX);
 		
-		driver = new RemoteWebDriver(new URL("http://52.207.208.41:4444/wd/hub"),capability);
+		driver = new RemoteWebDriver(new URL("http://52.207.208.41/wd/hub"),capability);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(environment);
 		
@@ -54,7 +54,7 @@ public class StepDefs {
 		capability.setBrowserName("firefox");
 		capability.setPlatform(Platform.LINUX);
 		
-		driver = new RemoteWebDriver(new URL("http://52.207.208.41:4444/wd/hub"),capability);
+		driver = new RemoteWebDriver(new URL("http://52.207.208.41/wd/hub"),capability);
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		welcome = new WelcomePage(driver);
