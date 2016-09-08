@@ -24,7 +24,7 @@ public class EmployeeListStepDefs {
 	WebDriver driver;
 	WebDriverWait waitDriver;
 	GivePoint pointPage;
-	String listTitle = "Latest Kudos";
+	String homePageTitle = "Home | kudos";
 	String homeUrl;
 
 	@Given("^there is at least (\\d+) employee with a point in the system$")
@@ -43,23 +43,23 @@ public class EmployeeListStepDefs {
 	public void I_navigate_to_the_Home_screen(String homeUrl) throws Throwable {
 		driver.get(homeUrl);
 		pointPage = new GivePoint(driver);
-		waitDriver.until(ExpectedConditions.visibilityOf(pointPage.getKudosList()));
-		assertTrue(pointPage.getKudosList().isDisplayed());
-		assertTrue(pointPage.getList().isDisplayed());
-		assertEquals(listTitle, pointPage.getListTitleText());
+		assertEquals(homePageTitle, pointPage.getPageTitle());
 	}
 
 	@Then("^I will see a list of employees$")
 	public void I_will_see_a_list_of_employees() throws Throwable {
-		assertTrue(pointPage.getUsers().size() > 0);
+		waitDriver.until(ExpectedConditions.visibilityOf(pointPage.getKudosList()));
+		assertTrue(pointPage.getKudosList().isDisplayed());
+		assertTrue(pointPage.getListHeader().isDisplayed());
 	}
-	
+
 	/**
 	 * Check if employee has points
 	 */
 	@And("^each employee with have their number of points listed with them$")
 	public void seeEmployeePoints() {
-		pointPage.getUsers().get(0);
-		driver.quit();
+		if(pointPage.getUsers().size() != 0) {
+			assertTrue(pointPage.usersHaveKudos());
+		}
 	}
 }

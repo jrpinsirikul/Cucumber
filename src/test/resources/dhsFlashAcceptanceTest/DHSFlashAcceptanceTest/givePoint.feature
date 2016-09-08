@@ -16,7 +16,7 @@ Feature: Give a colleague a point
 			
 	Examples:
 		| form url | colleague |
-		| http://devint.linktecflash.com/DHSFlash/#/home | Julia Brundage |
+		| http://devint.linktecflash.com/DHSFlash/#/home | John Doe |
 			
 	Scenario Outline: Submit empty form
 		Given I navigate to the give point screen <form url>

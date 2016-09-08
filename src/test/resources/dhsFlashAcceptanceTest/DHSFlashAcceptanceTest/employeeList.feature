@@ -15,3 +15,13 @@ Feature: View employee point list
 	Examples:
 		| form url |
 		| http://devint.linktecflash.com/DHSFlash/#/home |
+		
+	Scenario Outline: Successfully view an employee list with corresponding points
+		Given there is at least 1 employee with a point in the system
+		When I navigate to the Home screen <form url>
+		Then I will see a list of employees
+		And each employee with have their number of points listed with them
+			
+	Examples:
+		| form url |
+		| http://devint.linktecflash.com/DHSFlash/#/home |

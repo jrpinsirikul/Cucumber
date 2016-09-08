@@ -68,7 +68,7 @@ public class StepDefs {
 	@Then("^the homepage loads$")
 	public void the_homepage_loads() throws Throwable {
 	    //System.out.println(driver.getTitle());
-	    assertEquals("Kudos Form | kudos", welcome.getPageTitle());  
+	    assertEquals("Home | kudos", welcome.getPageTitle());  
 	    driver.quit();
 	}
 }

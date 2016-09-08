@@ -27,7 +27,7 @@ public class GivePoint {
 	@FindBy(xpath="//div[@id='kudosAwardList']/kudos-award-list/div/h3")
 	WebElement kudosListTitle;
 
-	@FindBy(css="li[ng-repeat='user in users']")
+	@FindBy(xpath="//div[@id='kudosAwardList']/kudos-award-list/div/ul/li")
 	List<WebElement> usersInList;
 
 	/**
@@ -73,19 +73,11 @@ public class GivePoint {
 	}
 
 	/**
-	 * Get list title
-	 * @return the list title element
+	 * Get list header
+	 * @return the list header element
 	 */
-	public WebElement getList() {
+	public WebElement getListHeader() {
 		return kudosListTitle;
-	}
-
-	/**
-	 * Get list title text
-	 * @return string of the title
-	 */
-	public String getListTitleText() {
-		return kudosListTitle.getText();
 	}
 
 	/**
@@ -94,6 +86,19 @@ public class GivePoint {
 	 */
 	public List<WebElement> getUsers() {
 		return usersInList;
+	}
+
+	/**
+	 * If the users list is not empty, checks if the
+	 * users have kudos listed next to them
+	 */
+	public boolean usersHaveKudos() {
+		String user = usersInList.get(0).getText();
+		String[] userAndKudos = user.split(",");
+		if (userAndKudos.length > 0) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
