@@ -8,7 +8,7 @@
 #		And I click give point button
 #		Then The form will submit
 Feature: Give a colleague a point
-	Scenario Outline: Successfully give colleagee a point
+	Scenario Outline: Successfully give colleage a point
 		Given I navigate to the give point screen <form url>
 		And I am logged in with username <username> and password <password>
 		When I select a colleague from list <colleague>

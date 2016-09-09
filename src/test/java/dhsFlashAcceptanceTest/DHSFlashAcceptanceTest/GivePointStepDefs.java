@@ -38,8 +38,8 @@ public class GivePointStepDefs {
 	 */
 	@Given ("^I navigate to the give point screen (.+)$")
 	public void goToPointPage(String formUrl) throws Throwable {
-		capability = DesiredCapabilities.firefox();
-		capability.setBrowserName("firefox");
+		capability = DesiredCapabilities.chrome();
+		capability.setBrowserName("chrome");
 		capability.setPlatform(Platform.LINUX);
 
 		driver = new RemoteWebDriver(new URL("http://52.207.208.41/wd/hub"),capability);

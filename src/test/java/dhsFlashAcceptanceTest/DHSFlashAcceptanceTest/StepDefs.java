@@ -34,8 +34,8 @@ public class StepDefs {
 	 */
 	@When ("^I login to the application (.+)$")
 	public void goToHomePage(String environment) throws Throwable {
-		capability = DesiredCapabilities.firefox();
-		capability.setBrowserName("firefox");
+		capability = DesiredCapabilities.chrome();
+		capability.setBrowserName("chrome");
 		capability.setPlatform(Platform.LINUX);
 
 		driver = new RemoteWebDriver(new URL("http://52.207.208.41/wd/hub"),capability);
