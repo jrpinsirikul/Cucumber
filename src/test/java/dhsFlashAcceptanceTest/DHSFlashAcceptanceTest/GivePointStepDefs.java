@@ -80,6 +80,9 @@ public class GivePointStepDefs {
 		driver.quit();
 	}
 	
+	/**
+	 * Submitting an empty form
+	 */
 	@Then ("^the form will not submit$")
 	public void submitEmptyForm() {
 		givePoint.clickGivePoint();
@@ -104,7 +107,6 @@ public class GivePointStepDefs {
 	
 	@Then ("^the form will clear$")
 	public void clearForm() {
-		givePoint.clickResetForm();
 		assertEquals(homePageTitle, givePoint.getPageTitle());
 	}
 }
