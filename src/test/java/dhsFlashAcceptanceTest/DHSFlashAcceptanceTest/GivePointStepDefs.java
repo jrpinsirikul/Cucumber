@@ -78,14 +78,14 @@ public class GivePointStepDefs {
 		driver.quit();
 	}
 
-	/**
-	 * Submit Empty points form
-	 */
-	@And ("^I click give point button$")
-	public void givePoint2() {
-		assertTrue(givePoint.getGivePointButton().isDisplayed());
-		givePoint.clickGivePoint();
-	}
+//	/**
+//	 * Submit Empty points form
+//	 */
+//	@And ("^I click give point button$")
+//	public void givePoint2() {
+//		assertTrue(givePoint.getGivePointButton().isDisplayed());
+//		givePoint.clickGivePoint();
+//	}
 	
 	@Then ("^the form will not submit$")
 	public void submitEmptyForm() {

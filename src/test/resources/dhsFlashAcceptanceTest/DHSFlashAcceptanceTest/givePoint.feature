@@ -12,7 +12,7 @@ Feature: Give a colleague a point
 		Given I navigate to the give point screen <form url>
 		And I am logged in with username <username> and password <password>
 		When I select a colleague from list <colleague>
-		And I click give point button
+		When I click give point button
 		Then The form will submit
 			
 	Examples:
