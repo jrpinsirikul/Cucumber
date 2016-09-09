@@ -55,7 +55,7 @@ public class StepDefs {
 	}
 
 	@Then("^I should see the home page$")
-	public void checkWelcomeMessage(String welcomeMessage) throws Throwable {
+	public void checkWelcomeMessage() throws Throwable {
 		assertEquals("Home | kudos", welcome.getPageTitle());  
 		driver.quit();
 	}
