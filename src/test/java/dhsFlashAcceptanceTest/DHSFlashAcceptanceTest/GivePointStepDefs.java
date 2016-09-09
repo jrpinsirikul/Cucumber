@@ -68,6 +68,8 @@ public class GivePointStepDefs {
 
 	@When ("^I click give point button$")
 	public void givePoint() {
+		givePoint = new GivePoint(driver);
+		waitDriver.until(ExpectedConditions.visibilityOf(givePoint.getGivePointButton()));
 		assertTrue(givePoint.getGivePointButton().isDisplayed());
 		givePoint.clickGivePoint();
 	}
