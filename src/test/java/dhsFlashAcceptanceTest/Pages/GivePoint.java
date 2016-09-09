@@ -18,10 +18,10 @@ public class GivePoint {
 	@FindBy(xpath="//div[@id='kudosSubmitForm']/kudos-form-short/div/form/div/select")
 	WebElement nameDropdown;
 
-	@FindBy(xpath="//*[@id='kudosSubmitForm']/kudos-form-short/div/form/div[5]/button[1]")
+	@FindBy(xpath="//*[@id='kudosSubmitForm']/kudos-form-short/div/form/div[6]/button[1]")
 	WebElement givePointButton;
 	
-	@FindBy(css="button[ng-click='resetForm()']")
+	@FindBy(xpath="//*[@id='kudosSubmitForm']/kudos-form-short/div/form/div[6]/a")
 	WebElement resetButton;
 
 	@FindBy(id="kudosAwardList")
@@ -32,6 +32,9 @@ public class GivePoint {
 
 	@FindBy(xpath="//div[@id='kudosAwardList']/kudos-award-list/div/ul/li")
 	List<WebElement> usersInList;
+	
+	@FindBy(xpath="//*[@id='kudosSubmitForm']/kudos-form-short/div/form/div[5]/textarea")
+	WebElement commentBox;
 
 	/**
 	 * Initializes give point page element
@@ -60,6 +63,14 @@ public class GivePoint {
 		dropDown.selectByVisibleText(employeeName);
 	} 
 
+	/**
+	 * Submits text to comment form
+	 * @param the text in the form
+	 */
+	public void submitComment(String comment) {
+		commentBox.sendKeys(comment);
+	}
+	
 	/**
 	 * Submits the give point form
 	 */

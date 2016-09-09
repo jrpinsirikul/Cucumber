@@ -13,7 +13,7 @@ Feature: Give a colleague a point
 		And I am logged in with username <username> and password <password>
 		When I select a colleague from list <colleague>
 		When I click give point button
-		Then The form will submit
+		Then The form will not submit with missing category
 			
 	Examples:
 		| form url | colleague | username | password |

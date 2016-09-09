@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -31,6 +32,7 @@ public class GivePointStepDefs {
 	Login loginPage;
 	String loginPageTitle = "Sign In | kudos";
 	String homePageTitle = "Home | kudos";
+	String comment = "a comment here";
 
 	/**
 	 * Successfully give points to colleague
@@ -74,9 +76,11 @@ public class GivePointStepDefs {
 		givePoint.clickGivePoint();
 	}
 
-	@Then ("^The form will submit$")
+	@Then ("^The form will not submit with missing category$")
 	public void formSubmitted() {
 		assertTrue(true);
+		waitDriver.until(ExpectedConditions.visibilityOf(driver.findElement(
+				By.xpath("//*[@id='kudosSubmitForm']/kudos-form-short/div/form/div[2]/ul/li"))));
 		driver.quit();
 	}
 	
@@ -86,7 +90,6 @@ public class GivePointStepDefs {
 	@Then ("^the form will not submit$")
 	public void submitEmptyForm() {
 		givePoint.clickGivePoint();
-		assertTrue(true);
 		driver.quit();
 	}
 	
@@ -96,7 +99,7 @@ public class GivePointStepDefs {
 	@When ("^I fill out form$")
 	public void fillOutForm() {
 		assertTrue(givePoint.getPointForm().isDisplayed());
-		givePoint.selectColleague(employeeName);
+		givePoint.submitComment(comment);
 	}
 	
 	@And ("^I click the reset button$")
