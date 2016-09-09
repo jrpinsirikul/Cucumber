@@ -18,14 +18,18 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import dhsFlashAcceptanceTest.Pages.GivePoint;
+import dhsFlashAcceptanceTest.Pages.Login;
 
 public class EmployeeListStepDefs {
 	DesiredCapabilities capability;
 	WebDriver driver;
 	WebDriverWait waitDriver;
 	GivePoint pointPage;
+	String username = "johndoe";
+	String password = "letmein";
+	Login loginPage;
+	String loginPageTitle = "Sign In | kudos";
 	String homePageTitle = "Home | kudos";
-	String homeUrl;
 
 	@Given("^there is at least (\\d+) employee with a point in the system$")
 	public void there_is_at_least_employee_with_a_point_in_the_system(int arg1) throws Throwable {
@@ -42,6 +46,14 @@ public class EmployeeListStepDefs {
 	@When("^I navigate to the Home screen (.+)$")
 	public void I_navigate_to_the_Home_screen(String homeUrl) throws Throwable {
 		driver.get(homeUrl);
+		//Login
+		loginPage = new Login(driver);
+		assertEquals(loginPageTitle, loginPage.getPageTitle());
+		waitDriver.until(ExpectedConditions.visibilityOf(loginPage.getLoginBox()));
+		assertTrue(loginPage.getUsernameBox().isDisplayed());
+		assertTrue(loginPage.getPasswordBox().isDisplayed());
+		loginPage.login(username, password);
+		//End Login
 		pointPage = new GivePoint(driver);
 		assertEquals(homePageTitle, pointPage.getPageTitle());
 	}

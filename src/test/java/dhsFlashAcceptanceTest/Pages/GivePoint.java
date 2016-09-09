@@ -20,6 +20,9 @@ public class GivePoint {
 
 	@FindBy(css="button[title='Log In']")
 	WebElement givePointButton;
+	
+	@FindBy(css="button[ng-click='resetForm()']")
+	WebElement resetButton;
 
 	@FindBy(id="kudosAwardList")
 	WebElement kudosList;
@@ -62,6 +65,20 @@ public class GivePoint {
 	 */
 	public void clickGivePoint() {
 		givePointButton.click();
+	}
+	
+	/**
+	 * Submits the give point form
+	 */
+	public WebElement getGivePointButton() {
+		return givePointButton;
+	}
+	
+	/**
+	 * Reset point form
+	 */
+	public void clickResetForm() {
+		resetButton.click();
 	}
 
 	/**
