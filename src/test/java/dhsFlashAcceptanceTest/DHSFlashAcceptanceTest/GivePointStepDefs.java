@@ -99,4 +99,10 @@ public class GivePointStepDefs {
 		givePoint.clickResetForm();
 		assertEquals(homePageTitle, givePoint.getPageTitle());
 	}
+	
+	@Then ("^the form will clear$")
+	public void clearForm() {
+		givePoint.clickResetForm();
+		assertEquals(homePageTitle, givePoint.getPageTitle());
+	}
 }

@@ -18,7 +18,7 @@ public class GivePoint {
 	@FindBy(xpath="//div[@id='kudosSubmitForm']/kudos-form-short/div/form/div/select")
 	WebElement nameDropdown;
 
-	@FindBy(css="button[title='Log In']")
+	@FindBy(xpath="//div[@className='form-actions']/button")
 	WebElement givePointButton;
 	
 	@FindBy(css="button[ng-click='resetForm()']")
